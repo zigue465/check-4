@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+#define SIZE 10
+
+int main() {
+    int matriz[SIZE][SIZE];
+    int i, j;
+    int maiorValor = 0;
+    int linhaMaiorValor, colunaMaiorValor;
+
+    // Preencher a matriz com valores fornecidos pelo usuário
+    printf("Digite os elementos da matriz:\n");
+    for (i = 0; i < SIZE; i++) {
+        for (j = 0; j < SIZE; j++) {
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+
+            // Verificar se o valor atual é maior que o maior valor encontrado até agora
+            if (matriz[i][j] > maiorValor) {
+                maiorValor = matriz[i][j];
+                linhaMaiorValor = i;
+                colunaMaiorValor = j;
+            }
+        }
+    }
+
+    // Imprimir o maior valor e sua posição
+    printf("Maior valor: %d\n", maiorValor);
+    printf("Posicao: [%d][%d]\n", linhaMaiorValor, colunaMaiorValor);
+
+    // Imprimir os elementos da diagonal principal
+    printf("Elementos da diagonal principal:\n");
+    for (i = 0; i < SIZE; i++) {
+        printf("%d ", matriz[i][i]);
+    }
+    printf("\n");
+
+    // Imprimir os elementos da diagonal secundária
+    printf("Elementos da diagonal secundaria:\n");
+    for (i = 0; i < SIZE; i++) {
+        printf("%d ", matriz[i][SIZE - 1 - i]);
+    }
+    printf("\n");
+
+    return 0;
+}
